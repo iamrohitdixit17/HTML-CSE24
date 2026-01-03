@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeHaven - Premium Furniture & Home Decor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B7355; /* Warm brown */
+            --primary-dark: #6B5A45;
+            --primary-light: #D4BFA8;
+            --secondary: #2C3E2F; /* Forest green */
+            --secondary-light: #3A4F3E;
+            --accent: #A67C52; /* Gold/copper */
+            --accent-light: #C9A87C;
+            --neutral-light: #F8F5F1;
+            --neutral-medium: #E8E2D9;
+            --neutral-dark: #3A3329;
+            --text-dark: #2C2C2C;
+            --text-medium: #5A5A5A;
+            --text-light: #8A8A8A;
+            --border-color: #D8D1C7;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.03);
+            --radius: 10px;
+            --radius-sm: 6px;
+            --radius-lg: 16px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+            color: white;
+            padding: 10px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .offer-text {
+            font-weight: 500;
+        }
+
+        .offer-highlight {
+            color: var(--primary-light);
+            font-weight: 700;
+            position: relative;
+            padding: 0 5px;
+        }
+
+        .offer-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-light);
+            border-radius: 2px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            padding-left: 10px;
+            font-style: italic;
+        }
+
+        .logo-tagline::before {
+            content: '|';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .main-nav {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            background-color: var(--neutral-light);
+            padding: 8px;
+            border-radius: 50px;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+            background-color: white;
+            box-shadow: var(--shadow-light);
+        }
+
+        .main-nav a.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 12px 20px 12px 45px;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            width: 280px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background-color: var(--neutral-light);
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+            width: 320px;
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            pointer-events: none;
+        }
+
+        .action-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .action-icon {
+            position: relative;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .action-icon:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signup-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, var(--neutral-light) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.08) 0%, rgba(139, 115, 85, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(44, 62, 47, 0.08) 0%, rgba(44, 62, 47, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(166, 124, 82, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(139, 115, 85, 0.2);
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .hero-btn.primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.3);
+        }
+
+        .hero-btn.primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.4);
+        }
+
+        .hero-btn.secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--border-color);
+        }
+
+        .hero-btn.secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            max-width: 600px;
+        }
+
+        .hero-img-main {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .hero-img-main:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 15px;
+            box-shadow: var(--shadow-hover);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-badge:nth-child(2) {
+            top: 20%;
+            left: -30px;
+            animation-delay: 1s;
+        }
+
+        .floating-badge:nth-child(3) {
+            bottom: 20%;
+            right: -30px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Categories Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin-top: 10px;
+        }
+
+        .view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+        }
+
+        .view-all:hover {
+            border-color: var(--primary);
+            padding-right: 25px;
+        }
+
+        .categories-section {
+            padding: 80px 0;
+            background-color: var(--neutral-light);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        .category-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .category-count {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Featured Products */
+        .featured-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .featured-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, var(--neutral-light) 0%, rgba(248, 245, 241, 0) 100%);
+            z-index: -1;
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+            background-color: var(--neutral-light);
+            padding: 10px;
+            border-radius: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 12px 28px;
+            font-weight: 600;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 50px;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+            letter-spacing: 0.5px;
+        }
+
+        .product-badge.sale {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        }
+
+        .product-badge.new {
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+        }
+
+        .product-badge.hot {
+            background: linear-gradient(90deg, var(--accent), #C9A87C);
+        }
+
+        .product-badge.bestseller {
+            background: linear-gradient(90deg, #8B7355, #A67C52);
+        }
+
+        .product-image-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-actions {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transform: translateX(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-actions {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .product-action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            color: var(--secondary);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition-fast);
+        }
+
+        .product-action-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .rating-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .original-price {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .discount-percent {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-card .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent !important;
+            color: var(--secondary) !important;
+            border: 2px solid var(--border-color) !important;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary) !important;
+            color: var(--primary) !important;
+        }
+
+        /* Room Inspiration Section */
+        .inspiration-section {
+            padding: 80px 0;
+            background-color: var(--neutral-light);
+        }
+
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .inspiration-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+            transition: var(--transition);
+        }
+
+        .inspiration-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .inspiration-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .inspiration-card:hover .inspiration-image {
+            transform: scale(1.05);
+        }
+
+        .inspiration-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .inspiration-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .inspiration-btn {
+            margin-top: 15px;
+            background-color: white;
+            color: var(--secondary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .inspiration-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Banner Section */
+        .banner-section {
+            padding: 80px 0;
+        }
+
+        .banner-container {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .banner-content {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .banner-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .banner-btn {
+            background-color: white;
+            color: var(--secondary);
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .banner-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-img {
+            max-width: 450px;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+
+        .banner-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /* Brands Section */
+        .brands-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .brand-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+            padding: 15px;
+            background-color: var(--neutral-light);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-light);
+        }
+
+        .brand-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .brand-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--neutral-light) 0%, #ffffff 100%);
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .newsletter-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 20px 30px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 0 45px;
+        }
+
+        .newsletter-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer-about p {
+            color: #ccc;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-column ul li a i {
+            width: 20px;
+            color: var(--primary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: #ccc;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content {
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            
+            .search-container input {
+                width: 240px;
+            }
+            
+            .search-container input:focus {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px 0;
+            }
+            
+            .main-nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .banner-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .banner-content {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .main-nav {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .main-nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-actions {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .search-container input {
+                width: 100%;
+            }
+            
+            .search-container input:focus {
+                width: 100%;
+            }
+            
+            .action-icons {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .inspiration-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner-container {
+                padding: 40px 30px;
+            }
+            
+            .banner-title {
+                font-size: 2.2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: var(--radius);
+            }
+            
+            .newsletter-form input, .newsletter-form button {
+                width: 100%;
+                padding: 18px;
+                border-radius: 0;
+            }
+            
+            .floating-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .top-bar-content {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="offer-text">🎉 Spring Sale: Up to <span class="offer-highlight">50% OFF</span> on select furniture!</div>
+            <div class="top-bar-actions">
+                <a href="#newsletter" class="signup-btn">GET OFFER</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="#" class="logo">Home<span>Haven</span></a>
+                <div class="logo-tagline">PREMIUM FURNISHINGS</div>
+            </div>
+            
+            <ul class="main-nav">
+                <li><a href="#" class="active">ALL FURNITURE</a></li>
+                <li><a href="#living-room">LIVING ROOM</a></li>
+                <li><a href="#bedroom">BEDROOM</a></li>
+                <li><a href="#dining">DINING</a></li>
+                <li><a href="#office">OFFICE</a></li>
+                <li><a href="#decor">HOME DECOR</a></li>
+                <li><a href="#outdoor">OUTDOOR</a></li>
+                <li><a href="#sale">SALE</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search furniture, decor, brands...">
+                </div>
+                
+                <div class="action-icons">
+                    <div class="action-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <div class="action-icon">
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="action-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">2</span>
+                    </div>
+                </div>
+                
+                <a href="#newsletter" class="signup-btn">GET CATALOG</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">🏡 SPRING COLLECTION LAUNCH</div>
+                    <h1 class="hero-title">Transform Your <span>Home</span> With Premium Furniture</h1>
+                    <p class="hero-subtitle">Discover handcrafted furniture and elegant home decor that combines timeless design with modern comfort. Curated by interior designers.</p>
+                    
+                    <div class="hero-actions">
+                        <button class="hero-btn primary">
+                            <i class="fas fa-couch"></i> SHOP COLLECTION
+                        </button>
+                        <button class="hero-btn secondary">
+                            <i class="fas fa-play-circle"></i> DESIGN CONSULTATION
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">15K+</div>
+                            <div class="stat-label">Happy Homes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">Artisan Brands</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5-Star</div>
+                            <div class="stat-label">Rated Service</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="Luxury living room furniture" class="hero-img-main">
+                    
+                    <div class="floating-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-truck fa-2x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="badge-text">
+                            <div class="badge-title">Free Shipping</div>
+                            <div class="badge-subtitle">On orders over $499</div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-calendar-check fa-2x" style="color: var(--accent);"></i>
+                        </div>
+                        <div class="badge-text">
+                            <div class="badge-title">Free Assembly</div>
+                            <div class="badge-subtitle">With white glove service</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Shop By Category</h2>
+                    <p class="section-subtitle">Explore our curated collection of premium furniture and home decor for every room</p>
+                </div>
+                <a href="#all-categories" class="view-all">VIEW ALL CATEGORIES <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#living-room" class="category-card">
+                    <i class="fas fa-couch category-icon"></i>
+                    <h3>Living Room</h3>
+                    <div class="category-count">320+ Products</div>
+                </a>
+                <a href="#bedroom" class="category-card">
+                    <i class="fas fa-bed category-icon"></i>
+                    <h3>Bedroom</h3>
+                    <div class="category-count">280+ Products</div>
+                </a>
+                <a href="#dining" class="category-card">
+                    <i class="fas fa-utensils category-icon"></i>
+                    <h3>Dining Room</h3>
+                    <div class="category-count">195+ Products</div>
+                </a>
+                <a href="#office" class="category-card">
+                    <i class="fas fa-desktop category-icon"></i>
+                    <h3>Home Office</h3>
+                    <div class="category-count">150+ Products</div>
+                </a>
+                <a href="#lighting" class="category-card">
+                    <i class="fas fa-lightbulb category-icon"></i>
+                    <h3>Lighting</h3>
+                    <div class="category-count">220+ Products</div>
+                </a>
+                <a href="#decor" class="category-card">
+                    <i class="fas fa-palette category-icon"></i>
+                    <h3>Home Decor</h3>
+                    <div class="category-count">410+ Products</div>
+                </a>
+                <a href="#outdoor" class="category-card">
+                    <i class="fas fa-umbrella-beach category-icon"></i>
+                    <h3>Outdoor</h3>
+                    <div class="category-count">180+ Products</div>
+                </a>
+                <a href="#storage" class="category-card">
+                    <i class="fas fa-box-open category-icon"></i>
+                    <h3>Storage</h3>
+                    <div class="category-count">175+ Products</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-section" id="new-arrivals">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Featured Collection</h2>
+                    <p class="section-subtitle">Handpicked furniture pieces that combine craftsmanship with contemporary design</p>
+                </div>
+                <a href="#all-products" class="view-all">VIEW ALL PRODUCTS <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-btn active">All Furniture</button>
+                <button class="filter-btn">Best Sellers</button>
+                <button class="filter-btn">New Arrivals</button>
+                <button class="filter-btn">On Sale</button>
+                <button class="filter-btn">Designer Picks</button>
+                <button class="filter-btn">Sustainable</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge sale">25% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Modern Leather Sofa" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Living Room · Sofas</div>
+                        <h3 class="product-title">Modern Genuine Leather 3-Seater Sofa</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(142)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$1,299.99</span>
+                            <span class="original-price">$1,799.99</span>
+                            <span class="discount-percent">-25%</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Solid Wood Dining Table" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Dining Room · Tables</div>
+                        <h3 class="product-title">Solid Oak Extendable Dining Table</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(89)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$899.00</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge hot">HOT</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="King Size Bed Frame" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Bedroom · Beds</div>
+                        <h3 class="product-title">Upholstered King Size Bed Frame with Storage</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(245)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$1,499.99</span>
+                            <span class="original-price">$1,999.99</span>
+                            <span class="discount-percent">-25%</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge bestseller">BESTSELLER</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="Bookshelf" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Living Room · Storage</div>
+                        <h3 class="product-title">Modern 5-Shelf Bookcase in Walnut Finish</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(312)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$449.99</span>
+                            <span class="original-price">$599.99</span>
+                            <span class="discount-percent">-25%</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-badge sale">30% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Coffee Table" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Living Room · Tables</div>
+                        <h3 class="product-title">Marble Top Coffee Table with Metal Base</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(156)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$329.99</span>
+                            <span class="original-price">$469.99</span>
+                            <span class="discount-percent">-30%</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Desk Chair" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Office · Chairs</div>
+                        <h3 class="product-title">Ergonomic Executive Office Chair</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(203)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$299.99</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-badge sale">40% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1616627561950-9f746e330187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Accent Chair" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Living Room · Chairs</div>
+                        <h3 class="product-title">Velvet Accent Chair with Gold Legs</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(421)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$349.99</span>
+                            <span class="original-price">$579.99</span>
+                            <span class="discount-percent">-40%</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-badge hot">HOT</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="Dining Chairs" class="product-image">
+                        <div class="product-actions">
+                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Dining Room · Chairs</div>
+                        <h3 class="product-title">Set of 4 Modern Dining Chairs</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(178)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$599.99</span>
+                            <span class="original-price">$799.99</span>
+                            <span class="discount-percent">-25%</span>
+                        </div>
+                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="btn btn-outline" style="padding: 16px 50px; font-size: 1.1rem;">
+                    <i class="fas fa-redo"></i> Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Room Inspiration</h2>
+                    <p class="section-subtitle">Get inspired by beautifully designed rooms and discover how to recreate the look</p>
+                </div>
+                <a href="#all-inspiration" class="view-all">VIEW ALL ROOMS <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="inspiration-grid">
+                <div class="inspiration-card">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Modern Living Room" class="inspiration-image">
+                    <div class="inspiration-overlay">
+                        <h3 class="inspiration-title">Modern Living Room</h3>
+                        <p>Clean lines, neutral palette, and comfortable seating</p>
+                        <button class="inspiration-btn">SHOP THIS LOOK</button>
+                    </div>
+                </div>
+                
+                <div class="inspiration-card">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="Cozy Bedroom" class="inspiration-image">
+                    <div class="inspiration-overlay">
+                        <h3 class="inspiration-title">Cozy Bedroom</h3>
+                        <p>Warm textures, soft lighting, and serene atmosphere</p>
+                        <button class="inspiration-btn">SHOP THIS LOOK</button>
+                    </div>
+                </div>
+                
+                <div class="inspiration-card">
+                    <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80" alt="Home Office" class="inspiration-image">
+                    <div class="inspiration-overlay">
+                        <h3 class="inspiration-title">Productive Home Office</h3>
+                        <p>Ergonomic furniture and organized workspace</p>
+                        <button class="inspiration-btn">SHOP THIS LOOK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="banner-section" id="sale">
+        <div class="container">
+            <div class="banner-container">
+                <div class="banner-content">
+                    <div class="hero-badge" style="margin-bottom: 20px;">LIMITED TIME OFFER</div>
+                    <h2 class="banner-title">Spring Refresh Sale</h2>
+                    <p class="banner-subtitle">Up to 50% off on selected furniture collections. Redefine your living spaces with premium pieces at exceptional prices.</p>
+                    <button class="banner-btn">
+                        <i class="fas fa-leaf"></i> SHOP THE SALE
+                    </button>
+                </div>
+                <div class="banner-image">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Sale Banner" class="banner-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Trusted Furniture Brands</h2>
+            <div class="brands-grid">
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/West_Elm_Logo.svg/2560px-West_Elm_Logo.svg.png" alt="West Elm">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Crate_and_Barrel_logo.svg/2560px-Crate_and_Barrel_logo.svg.png" alt="Crate & Barrel">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Room%26Board_Logo.svg/2560px-Room%26Board_Logo.svg.png" alt="Room & Board">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ethan_Allen_Logo.svg/2560px-Ethan_Allen_Logo.svg.png" alt="Ethan Allen">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Restoration_Hardware_logo.svg/1200px-Restoration_Hardware_logo.svg.png" alt="Restoration Hardware">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pottery_Barn_logo.svg/2560px-Pottery_Barn_logo.svg.png" alt="Pottery Barn">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/IKEA_logo.svg/2560px-IKEA_logo.svg.png" alt="IKEA">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Article_Furniture_Logo.svg/1200px-Article_Furniture_Logo.svg.png" alt="Article">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2 class="newsletter-title">Design Inspiration Delivered</h2>
+                <p class="newsletter-subtitle">Subscribe to our newsletter for interior design tips, exclusive offers, and new collection announcements.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <p class="newsletter-note">By subscribing you agree to our Privacy Policy. You may unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">Home<span style="color: var(--primary);">Haven</span></a>
+                    <div class="footer-about">
+                        <p>Your premier destination for premium furniture and home decor. We bring you handcrafted pieces that combine timeless design with modern comfort, creating spaces you'll love to live in.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-houzz"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#living-room"><i class="fas fa-chevron-right"></i> Living Room</a></li>
+                        <li><a href="#bedroom"><i class="fas fa-chevron-right"></i> Bedroom</a></li>
+                        <li><a href="#dining"><i class="fas fa-chevron-right"></i> Dining Room</a></li>
+                        <li><a href="#office"><i class="fas fa-chevron-right"></i> Home Office</a></li>
+                        <li><a href="#outdoor"><i class="fas fa-chevron-right"></i> Outdoor Furniture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Interior Design Consultation</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Free Room Planning</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> White Glove Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Assembly Service</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>ABES Engineering college Ghaziabad </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>+91 92863 00000</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>hello@homehaven.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>Mon - Sat: 10:00 AM - 8:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 HomeHaven. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for beautiful living spaces</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
