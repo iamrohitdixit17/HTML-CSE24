@@ -1,0 +1,129 @@
+create a web page for college time table using table with rowspan colspan header and nested table.
+
+<html>
+<head>
+    <title>College Time Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .break {
+            background-color: #f39c12;
+            font-weight: bold;
+        }
+
+        .lab-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .lab-table td {
+            border: 1px solid #555;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .highlight {
+            background-color: #dff0d8;
+        }
+    </style>
+</head>
+<body>
+
+<h1>College Time Table</h1>
+
+<table>
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>Time Table</title>
+</head>
+<body>
+
+<table border="1">
+
+<tr>
+    <th rowspan="2">Day</th>
+    <th colspan="6">Time</th>
+</tr>
+
+<tr>
+    <th>9-10</th>
+    <th>10-11</th>
+    <th>11-12</th>
+    <th>12-1</th>
+    <th>2-3</th>
+    <th>3-4</th>
+</tr>
+
+<tr>
+    <td>Monday</td>
+    <td>Math</td>
+    <td>Physics</td>
+    <td rowspan="5">Lunch</td>
+    <td>Chemistry</td>
+    <td colspan="2">Computer Lab</td>
+</tr>
+
+<tr>
+    <td>Tuesday</td>
+    <td>English</td>
+    <td>Math</td>
+    <td>Physics</td>
+    <td>Sports</td>
+    <td>Library</td>
+</tr>
+
+<tr>
+    <td>Wednesday</td>
+    <td colspan="2">Workshop</td>
+    <td>Chemistry</td>
+    <td>Math</td>
+    <td>English</td>
+</tr>
+
+<tr>
+    <td>Thursday</td>
+    <td>Physics</td>
+    <td>Chemistry</td>
+    <td colspan="2">Seminar</td>
+    <td>Sports</td>
+</tr>
+
+<tr>
+    <td>Friday</td>
+    <td>English</td>
+    <td>Math</td>
+    <td>Physics</td>
+    <td colspan="2">Project</td>
+</tr>
+
+</table>
+
+</body>
+</html>
